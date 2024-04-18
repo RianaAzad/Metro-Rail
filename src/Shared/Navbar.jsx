@@ -7,7 +7,7 @@ const Navbar = () => {
          <li className='text-black font-semibold'><Link to='/'>Home</Link></li>
          <li className='text-black font-semibold '><Link to='/login'>Login</Link></li>
          <li className='text-black font-semibold '><Link to='/register'>Register</Link></li>
-         <li className='text-black font-semibold '><Link to='/distributor'>Metro Information</Link></li>
+         <li className='text-black font-semibold '><Link to='/metroinfo'>Metro Information</Link></li>
          <li className='text-black font-semibold '><Link to='/contact'>Contact</Link></li>
         
         
