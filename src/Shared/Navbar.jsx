@@ -3,6 +3,7 @@ import {useContext} from 'react'
 import { AuthContext } from './../Provider/AuthProvider';
 import { auth } from './../Firebase/firebase.config';
 
+
 const Navbar = () => {
   const {user,logOut}=useContext(AuthContext);
   const handleLogout=()=>{
@@ -12,9 +13,9 @@ const Navbar = () => {
   }
     const navLinks=<>
          <li className='text-black font-semibold'><Link to='/'>Home</Link></li>
-          <li className='text-black font-semibold '><Link to='/metroinfo'>Metro Information</Link></li>
+          <li className='text-black font-semibold '><Link to='/metroinfo'>Metro Schedule</Link></li>
          <li className='text-black font-semibold '><Link to='/contact'>Contact</Link></li>
-        
+         <li className='text-black font-semibold '><Link to='/recharge'>Recharge</Link></li>
         
     </>
     return (
@@ -67,6 +68,7 @@ const Navbar = () => {
                 </button>
             )}
   </div>
+  
 </div>
     );
 };

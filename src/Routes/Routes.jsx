@@ -5,6 +5,9 @@ import Register from './../Pages/Register/Register';
 import MetroInfo from './../Pages/MetroInfo/MetroInfo';
 import Contact from './../Pages/Contact/Contact';
 import Main from './../Layout/Main';
+import Recharge from './../Pages/Recharge/Recharge';
+import TicketInfo from './../Pages/TicketInfo/TicketInfo';
+import PrivateRoute from './../Provider/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
           {
             path:'/contact',
             element:<Contact></Contact>
+          },
+          {
+            path:'/recharge',
+            element:<PrivateRoute><TicketInfo></TicketInfo></PrivateRoute>
+          },
+          {
+            path:'/ticketinfo',
+            element:<PrivateRoute><TicketInfo></TicketInfo></PrivateRoute>
           }
       ]
     },

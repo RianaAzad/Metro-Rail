@@ -27,7 +27,7 @@ useEffect(()=>{
       }
 },[])
     const authInfo={
-         createUser,signIn,user,logOut
+         createUser,signIn,user,logOut,loading
     }
     return (
         <AuthContext.Provider value={authInfo}>
