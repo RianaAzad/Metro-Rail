@@ -1,13 +1,18 @@
 import {Link} from 'react-router-dom';
-
+import {useContext} from 'react'
+import { AuthContext } from './../Provider/AuthProvider';
+import { auth } from './../Firebase/firebase.config';
 
 const Navbar = () => {
-  
+  const {user,logOut}=useContext(AuthContext);
+  const handleLogout=()=>{
+    logOut(auth)
+    .then('')
+    .catch(error)
+  }
     const navLinks=<>
          <li className='text-black font-semibold'><Link to='/'>Home</Link></li>
-         <li className='text-black font-semibold '><Link to='/login'>Login</Link></li>
-         <li className='text-black font-semibold '><Link to='/register'>Register</Link></li>
-         <li className='text-black font-semibold '><Link to='/metroinfo'>Metro Information</Link></li>
+          <li className='text-black font-semibold '><Link to='/metroinfo'>Metro Information</Link></li>
          <li className='text-black font-semibold '><Link to='/contact'>Contact</Link></li>
         
         
@@ -37,7 +42,30 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+  {user?.email ? (
+                <div className="flex items-center space-x-4">
+                    
+                    <div className="dropdown dropdown-end">
+                    <button className='btn btn-outline'>{user.email}</button>
+                        <ul tabIndex="0" className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <Link to="/profile" className="menu-title">
+                                    Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <button onClick={handleLogout} className="menu-title">
+                                    Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            ) : (
+                <button className='text-black font-semibold '>
+                    <Link to='/login'>Login</Link>
+                </button>
+            )}
   </div>
 </div>
     );
